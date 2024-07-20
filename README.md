@@ -1,6 +1,6 @@
 # ML_PROJECT
-**NAME:** Ahil Mohan
-**DEPT:** Information Technology
+# **NAME:** Ahil Mohan
+# **DEPT:** Information Technology
 **SEC:** B
 **PROJECT NAME:** Credit Card Fraud Detection Using Machine Learning in Python
 **ABSTRACT:** 
