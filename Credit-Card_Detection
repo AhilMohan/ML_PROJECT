@@ -1,0 +1,21 @@
+!pip install imbalanced-learn
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from imblearn.over_sampling import SMOTE
+url = 'https://storage.googleapis.com/download.tensorflow.org/data/creditcard.csv'
+data = pd.read_csv(url)
+print(data.head())
+print(data.describe())
+print(data.isnull().sum())
+scaler = StandardScaler()
+data['Amount'] = scaler.fit_transform(data['Amount'].values.reshape(-1, 1))
+X = data.drop('Class', axis=1)
+y = data['Class']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+sm = SMOTE(random_state=42)
+X_train_res, y_train_res = sm.fit_resample(X_train, y_train)
+print(X_train_res.shape, y_train_res.shape)
